@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        li.fav
+        {
+            background: #ff9eff;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi hello</h1>
+
+    <div id="app">
+        <p>{{display}}</p>        
+        <div v-if="showtitle">
+            <ul>
+                <li v-for="book in display" :class="{fav : book.isfav}" @click="toggle(book)">
+                    <h3>{{book.title}}</h3>
+                    <p>{{book.author}}</p>
+                </li>
+            </ul>
+        </div>
+               
+        <button @click="show">
+            <span v-if="showtitle">hide</span>
+            <span v-else>show</span>
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
